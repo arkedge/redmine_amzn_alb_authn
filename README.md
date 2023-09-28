@@ -1,6 +1,6 @@
 # redmine_amzn_alb_authn
 
-Redmine plugin to use Amazon ALB for user authentication.
+Redmine plugin to use [Amazon ALB for user authentication](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html).
 
 ## Redmine version support
 
