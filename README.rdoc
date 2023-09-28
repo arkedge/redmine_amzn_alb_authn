@@ -1,3 +1,0 @@
-= redmine_amzn_alb_authn
-
-Description goes here
