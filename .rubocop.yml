@@ -12,9 +12,15 @@ require:
   - rubocop-rake
   - rubocop-rspec
 
+inherit_mode:
+  merge:
+    - Include
+
 AllCops:
   TargetRubyVersion: 3.1
   NewCops: enable
+  Include:
+    - Gemfile.local
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: consistent_comma

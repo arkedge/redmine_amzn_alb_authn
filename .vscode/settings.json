@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "Gemfile.local": "ruby"
+  },
+  "rubyLsp.bundleGemfile": "Gemfile.local",
+}
