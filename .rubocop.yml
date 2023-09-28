@@ -21,6 +21,7 @@ AllCops:
   NewCops: enable
   Include:
     - Gemfile.local
+    - PluginGemfile
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: consistent_comma
