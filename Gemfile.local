@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 
 eval_gemfile 'PluginGemfile'
 
+gem 'activesupport', '~> 6.1.7' # same as Redmine v5
+
 gem 'rake'
 gem 'rspec'
 gem 'rubocop'
@@ -11,3 +13,4 @@ gem 'rubocop-rake'
 gem 'rubocop-rspec'
 gem 'ruby-lsp'
 gem 'solargraph'
+gem 'webmock'

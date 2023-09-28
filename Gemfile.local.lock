@@ -1,12 +1,26 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (6.1.7.6)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
+    addressable (2.8.5)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     backport (1.2.0)
     base64 (0.1.1)
     benchmark (0.2.1)
+    concurrent-ruby (1.2.2)
+    crack (0.4.5)
+      rexml
     diff-lcs (1.5.0)
     e2mmap (0.1.0)
+    hashdiff (1.0.1)
+    i18n (1.14.1)
+      concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.6)
     json (2.6.3)
     jwt (2.7.1)
@@ -15,6 +29,7 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     language_server-protocol (3.17.0.3)
+    minitest (5.20.0)
     nokogiri (1.15.4-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
@@ -24,6 +39,7 @@ GEM
       ast (~> 2.4.1)
       racc
     prettier_print (1.2.1)
+    public_suffix (5.0.3)
     racc (1.7.1)
     rainbow (3.1.1)
     rake (13.0.6)
@@ -96,15 +112,23 @@ GEM
       prettier_print (>= 1.2.0)
     thor (1.2.2)
     tilt (2.3.0)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
+    webmock (3.19.1)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     yard (0.9.34)
     yarp (0.11.0)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   arm64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
+  activesupport (~> 6.1.7)
   jwt (~> 2.7)
   rake
   rspec
@@ -113,6 +137,7 @@ DEPENDENCIES
   rubocop-rspec
   ruby-lsp
   solargraph
+  webmock
 
 BUNDLED WITH
    2.4.20
