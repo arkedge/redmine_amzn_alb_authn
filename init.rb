@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Redmine::Plugin.register :redmine_amzn_alb_authn do
   name 'Redmine Amzn Alb Authn plugin'
   author 'Author name'
