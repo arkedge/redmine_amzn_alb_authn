@@ -25,8 +25,11 @@ module RedmineAmznALBAuthn
         return
       end
 
-      decoder = OIDCDataDecoder.new(amzn_oidc_data)
-      payload, _header = decoder.verify_and_decode!
+      decoder = OIDCDataDecoder.new(
+        key_endpoint: RedmineAmznALBAuthn.key_endpoint,
+        iss: RedmineAmznALBAuthn.iss,
+      )
+      payload, _header = decoder.verify_and_decode!(amzn_oidc_data)
 
       email = payload['email']
       unless email

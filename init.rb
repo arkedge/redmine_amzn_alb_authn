@@ -11,4 +11,7 @@ Redmine::Plugin.register :redmine_amzn_alb_authn do
   author_url 'https://github.com/sankichi92'
 end
 
+RedmineAmznALBAuthn.key_endpoint = ENV.fetch('REDMINE_AMZN_ALB_AUTHN_KEY_ENDPOINT')
+RedmineAmznALBAuthn.iss = ENV.fetch('REDMINE_AMZN_ALB_AUTHN_ISS', nil)
+
 ApplicationController.prepend(RedmineAmznALBAuthn::ApplicationControllerPatch)
