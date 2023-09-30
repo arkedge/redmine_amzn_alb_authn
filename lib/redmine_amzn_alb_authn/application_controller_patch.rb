@@ -29,7 +29,12 @@ module RedmineAmznALBAuthn
         key_endpoint: RedmineAmznALBAuthn.key_endpoint,
         iss: RedmineAmznALBAuthn.iss,
       )
-      payload, _header = decoder.verify_and_decode!(amzn_oidc_data)
+      begin
+        payload, _header = decoder.verify_and_decode!(amzn_oidc_data)
+      rescue JWT::DecodeError, Net::HTTPExceptions => e
+        logger.error(e)
+        return
+      end
 
       email = payload['email']
       unless email
