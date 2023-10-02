@@ -10,7 +10,23 @@ Redmine plugin to use [Amazon ALB for user authentication](https://docs.aws.amaz
 
 Clone this repository to the Redmine plugins directory.
 
-    $ git clone https://github.com/arkedge/redmine_amzn_alb_authn path/to/redmine/plugins/redmine_amzn_alb_authn
+    $ cd path/to/redmine
+    $ git clone https://github.com/arkedge/redmine_amzn_alb_authn ./plugins/redmine_amzn_alb_authn
+
+Run `bundle install` to install [`PluginGemfile`](PluginGemfile) gems.
+
+    $ bundle install
+
+And execute DB migration.
+
+    $ bin/rails redmine:plugins:migrate
+
+## Configuration
+
+The plugin can be configured using the following environment variables:
+
+- `REDMINE_AMZN_ALB_AUTHN_KEY_ENDPOINT`: (required) Public key endpoint.
+- `REDMINE_AMZN_ALB_AUTHN_ISS`: If set, the plugin will verify that the `iss` claim has the same value.
 
 ## Development
 
