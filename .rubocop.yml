@@ -23,6 +23,10 @@ AllCops:
     - Gemfile.local
     - PluginGemfile
 
+Style/Documentation:
+  Exclude:
+    - db/migrate/*.rb
+
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: consistent_comma
 
@@ -33,4 +37,10 @@ Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
 
 Metrics:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
   Enabled: false

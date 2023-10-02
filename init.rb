@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'lib/redmine_amzn_alb_authn'
+
 Redmine::Plugin.register :redmine_amzn_alb_authn do
   name 'Amazon ALB authentication plugin'
   author 'Takahiro Miyoshi'
@@ -8,3 +10,8 @@ Redmine::Plugin.register :redmine_amzn_alb_authn do
   url 'https://github.com/arkedge/redmine_amzn_alb_auth'
   author_url 'https://github.com/sankichi92'
 end
+
+RedmineAmznALBAuthn.key_endpoint = ENV.fetch('REDMINE_AMZN_ALB_AUTHN_KEY_ENDPOINT')
+RedmineAmznALBAuthn.iss = ENV.fetch('REDMINE_AMZN_ALB_AUTHN_ISS', nil)
+
+ApplicationController.prepend(RedmineAmznALBAuthn::ApplicationControllerPatch)
