@@ -11,7 +11,7 @@ Redmine plugin to use [Amazon ALB for user authentication](https://docs.aws.amaz
 Clone this repository to the Redmine plugins directory.
 
     $ cd path/to/redmine
-    $ git clone https://github.com/arkedge/redmine_amzn_alb_authn ./plugins/redmine_amzn_alb_authn
+    $ git clone -b v0.1.0 https://github.com/arkedge/redmine_amzn_alb_authn ./plugins/redmine_amzn_alb_authn
 
 Run `bundle install` to install [`PluginGemfile`](PluginGemfile) gems.
 
