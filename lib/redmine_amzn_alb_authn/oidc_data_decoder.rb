@@ -9,7 +9,7 @@ require 'jwt'
 
 module RedmineAmznAlbAuthn
   # Verifies and decodes the JWT from the X-Amzn-Oidc-Data header sent by ALB.
-  class OIDCDataDecoder
+  class OidcDataDecoder
     class_attribute :key_cache, default: ActiveSupport::Cache::MemoryStore.new(expires_in: 1.hour)
 
     def initialize(key_endpoint:, iss: nil)
