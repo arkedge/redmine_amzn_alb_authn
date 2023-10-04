@@ -25,7 +25,7 @@ module RedmineAmznAlbAuthn
         return
       end
 
-      decoder = OIDCDataDecoder.new(
+      decoder = OidcDataDecoder.new(
         key_endpoint: RedmineAmznAlbAuthn.key_endpoint,
         iss: RedmineAmznAlbAuthn.iss,
       )
