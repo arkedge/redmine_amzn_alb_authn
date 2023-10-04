@@ -2,7 +2,7 @@
 
 require_relative 'oidc_data_decoder'
 
-module RedmineAmznALBAuthn
+module RedmineAmznAlbAuthn
   # Module for monkey-patching Redmine's ApplicationController to override authentication.
   module ApplicationControllerPatch
     def find_current_user
@@ -26,8 +26,8 @@ module RedmineAmznALBAuthn
       end
 
       decoder = OIDCDataDecoder.new(
-        key_endpoint: RedmineAmznALBAuthn.key_endpoint,
-        iss: RedmineAmznALBAuthn.iss,
+        key_endpoint: RedmineAmznAlbAuthn.key_endpoint,
+        iss: RedmineAmznAlbAuthn.iss,
       )
       begin
         payload, _header = decoder.verify_and_decode!(amzn_oidc_data)

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RedmineAmznALBAuthn::OIDCDataDecoder do
+RSpec.describe RedmineAmznAlbAuthn::OIDCDataDecoder do
   subject(:decoder) { described_class.new(key_endpoint: 'https://example.com', iss:) }
 
   let(:iss) { 'my-issuer' }
