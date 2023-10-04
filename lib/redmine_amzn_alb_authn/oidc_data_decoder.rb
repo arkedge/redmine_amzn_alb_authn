@@ -7,7 +7,7 @@ require 'active_support/core_ext/class/attribute'
 require 'active_support/core_ext/numeric/time'
 require 'jwt'
 
-module RedmineAmznALBAuthn
+module RedmineAmznAlbAuthn
   # Verifies and decodes the JWT from the X-Amzn-Oidc-Data header sent by ALB.
   class OIDCDataDecoder
     class_attribute :key_cache, default: ActiveSupport::Cache::MemoryStore.new(expires_in: 1.hour)
