@@ -2,9 +2,12 @@
 
 Redmine plugin to use [Amazon ALB for user authentication](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html).
 
+This plugin verifies the JWT from the `X-Amzn-Oidc-Data` header with every request and makes users logged-in based on the `email` claim.
+Note that this plugin does not create users, so users must be pre-created.
+
 ## Redmine version support
 
-`~> 5.0.5`
+`>= 5.0.5`
 
 ## Installation
 
@@ -13,11 +16,11 @@ Clone this repository to the Redmine plugins directory.
     $ cd path/to/redmine
     $ git clone -b v0.1.2 https://github.com/arkedge/redmine_amzn_alb_authn ./plugins/redmine_amzn_alb_authn
 
-Run `bundle install` to install [`PluginGemfile`](PluginGemfile) gems.
+Run `bundle install` to install the depended gems listed in [`PluginGemfile`](PluginGemfile).
 
     $ bundle install
 
-And execute DB migration.
+And execute the database migration.
 
     $ bin/rails redmine:plugins:migrate
 
@@ -25,8 +28,10 @@ And execute DB migration.
 
 The plugin can be configured using the following environment variables:
 
-- `REDMINE_AMZN_ALB_AUTHN_KEY_ENDPOINT`: (required) Public key endpoint.
-- `REDMINE_AMZN_ALB_AUTHN_ISS`: If set, the plugin will verify that the `iss` claim has the same value.
+- `REDMINE_AMZN_ALB_AUTHN_KEY_ENDPOINT`
+  - **(required)** Public key endpoint, e.g., `https://public-keys.auth.elb.ap-northeast-1.amazonaws.com` when the ALB is in the `ap-northeast-1` region.
+- `REDMINE_AMZN_ALB_AUTHN_ISS`
+  - If set, the plugin will verify that the `iss` claim has the same value.
 
 ## Development
 
@@ -41,3 +46,7 @@ the required gems for plugin development are listed in `Gemfile.local`.
 ### Run the tests
 
     $ bundle exec rake
+
+## License
+
+[MIT License](LICENSE)
