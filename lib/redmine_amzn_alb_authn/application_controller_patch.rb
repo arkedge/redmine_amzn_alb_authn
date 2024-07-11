@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'errors'
 require_relative 'oidc_data_decoder'
 
 module RedmineAmznAlbAuthn
@@ -27,11 +28,12 @@ module RedmineAmznAlbAuthn
 
       decoder = OidcDataDecoder.new(
         key_endpoint: RedmineAmznAlbAuthn.key_endpoint,
+        alb_arn: RedmineAmznAlbAuthn.alb_arn,
         iss: RedmineAmznAlbAuthn.iss,
       )
       begin
         payload, _header = decoder.verify_and_decode!(amzn_oidc_data)
-      rescue JWT::DecodeError, Net::HTTPExceptions => e
+      rescue InvalidSignerError, JWT::DecodeError, Net::HTTPExceptions => e
         logger.error(e)
         return
       end

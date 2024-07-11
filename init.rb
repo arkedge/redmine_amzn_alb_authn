@@ -12,6 +12,7 @@ Redmine::Plugin.register :redmine_amzn_alb_authn do
 end
 
 RedmineAmznAlbAuthn.key_endpoint = ENV.fetch('REDMINE_AMZN_ALB_AUTHN_KEY_ENDPOINT')
+RedmineAmznAlbAuthn.alb_arn = ENV.fetch('REDMINE_AMZN_ALB_AUTHN_ALB_ARN')
 RedmineAmznAlbAuthn.iss = ENV.fetch('REDMINE_AMZN_ALB_AUTHN_ISS', nil)
 
 ApplicationController.prepend(RedmineAmznAlbAuthn::ApplicationControllerPatch)
