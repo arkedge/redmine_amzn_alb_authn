@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
 RSpec.describe RedmineAmznAlbAuthn::OidcDataDecoder do
-  subject(:decoder) { described_class.new(key_endpoint: 'https://example.com', alb_arn:, iss:) }
+  subject(:decoder) { described_class.new(key_endpoint: 'https://example.com', alb_arn:, iss: expected_iss) }
 
   let(:alb_arn) { 'arn:aws:elasticloadbalancing:ap-northeast-1:012345678901:loadbalancer/app/my-alb/0123456789abcdef' }
-  let(:iss) { 'my-issuer' }
+  let(:expected_iss) { 'https://iss.example.com' }
 
   describe '#verify_and_decode!' do
     let(:oidc_data) do
       JWT.encode({ sub: 1, exp: 2.minutes.from_now.to_i, iss: }, private_key, 'ES256', kid:, signer:)
     end
+    let(:iss) { expected_iss }
     let(:signer) { alb_arn }
     let(:kid) { SecureRandom.uuid }
     let(:private_key) { OpenSSL::PKey::EC.generate('prime256v1') }
@@ -40,9 +41,7 @@ RSpec.describe RedmineAmznAlbAuthn::OidcDataDecoder do
     end
 
     context 'with a JWT that has unexpected iss' do
-      let(:oidc_data) do
-        JWT.encode({ sub: 1, exp: 2.minutes.from_now.to_i, iss: 'unknown' }, private_key, 'ES256', kid:, signer:)
-      end
+      let(:iss) { 'unexpected' }
 
       it 'raises JWT::InvalidIssuerError' do
         expect { decoder.verify_and_decode!(oidc_data) }.to raise_error(JWT::InvalidIssuerError)
