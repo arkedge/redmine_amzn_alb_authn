@@ -30,6 +30,8 @@ The plugin can be configured using the following environment variables:
 
 - `REDMINE_AMZN_ALB_AUTHN_KEY_ENDPOINT`
   - **(required)** Public key endpoint, e.g., `https://public-keys.auth.elb.ap-northeast-1.amazonaws.com` when the ALB is in the `ap-northeast-1` region.
+- `REDMINE_AMZN_ALB_AUTHN_ALB_ARN`
+  - **(required)** The ARN of the Application Load Balancer expected by the `signer` field in the JWT header.
 - `REDMINE_AMZN_ALB_AUTHN_ISS`
   - If set, the plugin will verify that the `iss` claim has the same value.
 
