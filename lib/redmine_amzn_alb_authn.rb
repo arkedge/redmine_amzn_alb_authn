@@ -6,5 +6,5 @@ require_relative 'redmine_amzn_alb_authn/application_controller_patch'
 
 # Plugin namespace and configuration store.
 module RedmineAmznAlbAuthn
-  mattr_accessor :key_endpoint, :iss
+  mattr_accessor :key_endpoint, :alb_arn, :iss
 end
