@@ -7,7 +7,7 @@ require 'active_support/core_ext/class/attribute'
 require 'active_support/core_ext/numeric/time'
 require 'jwt'
 
-require_relative 'errors'
+require_relative 'error'
 
 module RedmineAmznAlbAuthn
   # Verifies and decodes the JWT from the X-Amzn-Oidc-Data header sent by ALB.
