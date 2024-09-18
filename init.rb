@@ -6,7 +6,7 @@ Redmine::Plugin.register :redmine_amzn_alb_authn do
   name 'Amazon ALB authentication plugin'
   author 'ArkEdge Space Inc.'
   description 'Use Amazon ALB for user authentication'
-  version '0.2.0'
+  version '0.2.1'
   url 'https://github.com/arkedge/redmine_amzn_alb_auth'
   author_url 'https://arkedgespace.com/'
 end

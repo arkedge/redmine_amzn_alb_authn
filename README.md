@@ -14,7 +14,7 @@ Note that this plugin does not create users, so users must be pre-created.
 Clone this repository to the Redmine plugins directory.
 
     $ cd path/to/redmine
-    $ git clone -b v0.2.0 https://github.com/arkedge/redmine_amzn_alb_authn ./plugins/redmine_amzn_alb_authn
+    $ git clone -b v0.2.1 https://github.com/arkedge/redmine_amzn_alb_authn ./plugins/redmine_amzn_alb_authn
 
 Run `bundle install` to install the depended gems listed in [`PluginGemfile`](PluginGemfile).
 
